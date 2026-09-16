@@ -8,7 +8,13 @@
   <meta property="og:title" content="Sytrix — Turn AI ambition into measurable performance">
   <meta property="og:description" content="Practical AI enablement for GCC enterprises: workshops, consulting and advisory built for the region.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#070B14">
+  <meta property="og:url" content="https://sytrix.net/">
+  <meta property="og:site_name" content="Sytrix">
+  <meta name="theme-color" content="#1E2A45">
+  <link rel="canonical" href="https://sytrix.net/">
+  <link rel="alternate" hreflang="en" href="https://sytrix.net/">
+  <link rel="alternate" hreflang="ar" href="https://sytrix.net/ar/">
+  <link rel="alternate" hreflang="x-default" href="https://sytrix.net/">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +27,7 @@
   <header class="header" id="top">
     <div class="container header__inner">
       <a class="brand" href="#top" aria-label="Sytrix home">
-        <img src="assets/img/logo.svg" alt="" width="38" height="38">
-        <span>SYTRIX</span>
+        <img class="brand__logo" src="assets/img/logo.svg" alt="Sytrix" width="176" height="22">
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="#services">Services</a>
@@ -33,7 +38,7 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="header__cta">
-        <button class="lang-toggle" type="button" title="Arabic version coming soon" aria-label="Switch language">EN · عربي</button>
+        <a class="lang-toggle" href="ar/" lang="ar" hreflang="ar" title="النسخة العربية">عربي</a>
         <a class="btn btn--primary" href="#contact">Book a discovery call</a>
         <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
       </div>
@@ -75,7 +80,7 @@
               <div class="stat-card__label">have not yet redesigned jobs or workflows around AI</div>
             </div>
             <div class="stat-card">
-              <div class="stat-card__value" style="color: var(--brand-gold)">#1</div>
+              <div class="stat-card__value accent">#1</div>
               <div class="stat-card__label">MEA is reported as the fastest-growing AI training market globally</div>
             </div>
           </div>
@@ -125,7 +130,7 @@
               <div class="bar__meta"><span>Unclear ROI frameworks</span><b>37%</b></div>
               <div class="bar__track"><div class="bar__fill" data-width="37"></div></div>
             </div>
-            <div class="bar bar--gold">
+            <div class="bar bar--accent">
               <div class="bar__meta"><span>Firms that consider themselves fully AI-ready</span><b>~1%</b></div>
               <div class="bar__track"><div class="bar__fill" data-width="3"></div></div>
             </div>
@@ -260,7 +265,7 @@
     </section>
 
     <!-- ================= WHY SYTRIX ================= -->
-    <section class="section why" id="why">
+    <section class="section why dark" id="why">
       <div class="container why__grid">
         <div class="reveal">
           <div class="eyebrow">Why Sytrix</div>
@@ -349,7 +354,7 @@
           </details>
           <details>
             <summary>Where are you based?</summary>
-            <p>We're based in the UAE and deliver across all six GCC markets, on-site or virtually.</p>
+            <p>Sytrix is headquartered in Montreal, Canada, and delivers across all six GCC markets on-site or virtually, with facilitators working in Gulf time zones.</p>
           </details>
         </div>
       </div>
@@ -367,8 +372,19 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Proposal within five business days</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> On-site across the GCC, or virtual</li>
           </ul>
+          <ul class="contact__details">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 7l8 6 8-6"/></svg><a href="mailto:info@sytrix.net" data-contact-email>info@sytrix.net</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.9 2z"/></svg><a href="tel:+14435745565" data-contact-phone dir="ltr">+1 (443) 574-5565</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Montreal, Canada · serving the GCC</span></li>
+          </ul>
         </div>
-        <form class="form reveal" id="contact-form" novalidate>
+        <form class="form reveal" id="contact-form" novalidate
+              data-msg-required="Please fill in your name, company and work email."
+              data-msg-email="That email address doesn't look right."
+              data-msg-sending="Sending…"
+              data-msg-success="Thanks — we'll be in touch within one business day."
+              data-msg-error="Something went wrong. Please email us directly at"
+              data-msg-mailto="Opening your email client… If nothing happens, write to">
           <div class="form__row">
             <div class="field"><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
             <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization" required></div>
@@ -401,11 +417,11 @@
   </main>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="footer">
+  <footer class="footer dark">
     <div class="container">
       <div class="footer__grid">
         <div>
-          <a class="brand" href="#top"><img src="assets/img/logo.svg" alt="" width="38" height="38"><span>SYTRIX</span></a>
+          <a class="brand" href="#top" aria-label="Sytrix home"><img class="brand__logo" src="assets/img/logo-light.svg" alt="Sytrix" width="160" height="20"></a>
           <p>AI workshops, training and consulting for GCC organizations. Practical, measurable and built for the region.</p>
         </div>
         <div>
@@ -429,9 +445,10 @@
         <div>
           <h4>Contact</h4>
           <ul>
-            <li><a href="#contact" data-contact-email>hello@sytrix.ai</a></li>
-            <li><a href="#contact">Book a discovery call</a></li>
-            <li><span class="muted" style="font-size:15px">United Arab Emirates</span></li>
+            <li><a href="mailto:info@sytrix.net" data-contact-email>info@sytrix.net</a></li>
+            <li><a href="tel:+14435745565" data-contact-phone dir="ltr">+1 (443) 574-5565</a></li>
+            <li><span>Montreal, Canada</span></li>
+            <li><a href="ar/" lang="ar" hreflang="ar">النسخة العربية</a></li>
           </ul>
         </div>
       </div>

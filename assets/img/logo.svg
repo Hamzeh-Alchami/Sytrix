@@ -1,10 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Sytrix mark">
-  <defs>
-    <linearGradient id="sx-g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#2DD4BF"/>
-      <stop offset="1" stop-color="#3B82F6"/>
-    </linearGradient>
-  </defs>
-  <path d="M24 3 42 13.5v21L24 45 6 34.5v-21z" fill="none" stroke="url(#sx-g)" stroke-width="2.5" stroke-linejoin="round"/>
-  <path d="M31 17.5c-1.6-2.1-4-3-6.8-3-3.7 0-6.2 1.9-6.2 4.6 0 6.5 13.2 3.2 13.2 10.2 0 2.9-2.9 4.9-7 4.9-3.2 0-5.8-1.2-7.4-3.4" fill="none" stroke="url(#sx-g)" stroke-width="3" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250" role="img" aria-label="Sytrix">
+  <path d="M20,0H290V68H68V91H270Q290,91 290,111V230Q290,250 270,250H0V182H222V159H20Q0,159 0,139V20Q0,0 20,0Z" fill="#1E2A45" fill-rule="evenodd"/>
+  <path d="M345,0H435L517,90L599,0H690L551,150V250H483V150Z" fill="#46536A" fill-rule="evenodd"/>
+  <path d="M745,0H1040V68H926V250H858V68H745Z" fill="#5B687B" fill-rule="evenodd"/>
+  <path d="M1110,0H1380Q1405,0 1405,25V155Q1405,180 1380,180H1335L1405,250H1330L1262,180H1178V250H1110Z M1178,68H1320Q1337,68 1337,85V95Q1337,112 1320,112H1178Z" fill="#77828F" fill-rule="evenodd"/>
+  <path d="M1490,0H1560V250H1490Z" fill="#8C96A0" fill-rule="evenodd"/>
+  <path d="M1640,0H1740L1817,75L1894,0H1995L1866,125L1995,250H1894L1817,175L1740,250H1640L1768,125Z" fill="#9EA7B0" fill-rule="evenodd"/>
 </svg>

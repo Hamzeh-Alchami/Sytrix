@@ -7,12 +7,16 @@ No build step. Plain HTML, CSS and JavaScript — deployable to GitHub Pages, Ne
 ## Structure
 
 ```
-index.html            Single-page site (hero → readiness gap → services → outcomes → approach → industries → why → briefings → FAQ → contact)
-assets/css/style.css  Styles. Brand tokens live in :root at the top.
-assets/js/main.js     Mobile nav, scroll reveals, animated bars, contact form.
-assets/img/logo.svg   Placeholder logo mark — replace with the final logo.
+index.html                 English site (hero → readiness gap → services → outcomes → approach → industries → why → briefings → FAQ → contact)
+ar/index.html              Arabic site, same structure, right-to-left
+assets/css/style.css       Styles. Brand tokens live in :root at the top; RTL rules at the bottom.
+assets/js/main.js          Mobile nav, scroll reveals, animated bars, contact form (shared by both languages).
+assets/img/logo.svg        SYTRIX wordmark, navy → slate (light backgrounds)
+assets/img/logo-light.svg  SYTRIX wordmark, white → slate (dark backgrounds)
 assets/img/favicon.svg
 ```
+
+Live domain: https://sytrix.net (English) and https://sytrix.net/ar/ (Arabic). Both pages carry `hreflang` links to each other.
 
 ## Run locally
 
@@ -24,11 +28,11 @@ python3 -m http.server 8080
 
 ## Customising
 
-- **Logo:** replace `assets/img/logo.svg` (and `favicon.svg`). The header and footer reference it at 38×38px.
-- **Colours / fonts:** edit the tokens in `:root` at the top of `assets/css/style.css` (`--brand-teal`, `--brand-blue`, `--brand-gold`, fonts, surfaces).
-- **Contact email:** set `CONTACT_EMAIL` in `assets/js/main.js` (currently a placeholder).
-- **Form handling:** set `FORM_ENDPOINT` in `assets/js/main.js` to a Formspree/Basin/own endpoint. If empty, the form falls back to opening the visitor's email client with a pre-filled message.
-- **Arabic:** the CSS includes `[dir="rtl"]` rules. To add an Arabic version, copy `index.html` to `ar/index.html`, set `<html lang="ar" dir="rtl">`, translate the copy and wire the header language toggle.
+- **Logo:** the wordmark SVGs are vector recreations of the supplied logo. To use the original artwork instead, overwrite `assets/img/logo.svg` and `assets/img/logo-light.svg` keeping the 2000×250 aspect ratio (the header sizes it by height).
+- **Colours / fonts:** edit the tokens in `:root` at the top of `assets/css/style.css` (`--navy`, `--slate-*`, `--accent`, fonts, surfaces).
+- **Contact details:** `CONTACT_EMAIL` and `CONTACT_PHONE` in `assets/js/main.js` populate every email/phone link on both pages.
+- **Form handling:** set `FORM_ENDPOINT` in `assets/js/main.js` to a Formspree/Basin/own endpoint. If empty, the form falls back to opening the visitor's email client with a pre-filled message. Status messages are read from `data-msg-*` attributes on each form, so each language has its own wording.
+- **Arabic copy:** edit `ar/index.html` directly. It shares the stylesheet and script with the English page.
 
 ## Notes on statistics
 

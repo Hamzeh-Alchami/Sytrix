@@ -4,17 +4,22 @@
   document.documentElement.classList.replace("no-js", "js");
 
   // ---- Site config (edit these) ----
-  var CONTACT_EMAIL = "hello@sytrix.ai";   // TODO: replace with the real inbox
+  var CONTACT_EMAIL = "info@sytrix.net";
+  var CONTACT_PHONE = "+1 (443) 574-5565";
   var FORM_ENDPOINT = "";                  // Optional: Formspree / Basin / own endpoint. Leave empty to fall back to mailto.
 
   // Year in footer
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
-  // Contact email link
+  // Contact links
   document.querySelectorAll("[data-contact-email]").forEach(function (a) {
     a.textContent = CONTACT_EMAIL;
     a.setAttribute("href", "mailto:" + CONTACT_EMAIL);
+  });
+  document.querySelectorAll("[data-contact-phone]").forEach(function (a) {
+    a.textContent = CONTACT_PHONE;
+    a.setAttribute("href", "tel:" + CONTACT_PHONE.replace(/[^\d+]/g, ""));
   });
 
   // Mobile nav
@@ -30,15 +35,6 @@
         header.classList.remove("nav-open");
         toggle.setAttribute("aria-expanded", "false");
       });
-    });
-  }
-
-  // Language toggle placeholder (Arabic version planned)
-  var lang = document.querySelector(".lang-toggle");
-  if (lang) {
-    lang.addEventListener("click", function () {
-      lang.textContent = "عربي — قريباً";
-      setTimeout(function () { lang.textContent = "EN · عربي"; }, 1800);
     });
   }
 
@@ -73,6 +69,7 @@
   // Contact form
   var form = document.getElementById("contact-form");
   var status = document.getElementById("form-status");
+  function msg(key, fallback) { return (form && form.getAttribute("data-msg-" + key)) || fallback; }
   if (form) {
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
@@ -80,27 +77,27 @@
       var required = ["name", "company", "email"];
       for (var i = 0; i < required.length; i++) {
         if (!String(data.get(required[i]) || "").trim()) {
-          status.textContent = "Please fill in your name, company and work email.";
+          status.textContent = msg("required", "Please fill in your name, company and work email.");
           form.querySelector("[name=" + required[i] + "]").focus();
           return;
         }
       }
       var email = String(data.get("email"));
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        status.textContent = "That email address doesn't look right.";
+        status.textContent = msg("email", "That email address doesn't look right.");
         return;
       }
 
       if (FORM_ENDPOINT) {
-        status.textContent = "Sending…";
+        status.textContent = msg("sending", "Sending…");
         fetch(FORM_ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } })
           .then(function (r) {
             if (!r.ok) throw new Error("bad status");
-            status.textContent = "Thanks — we'll be in touch within one business day.";
+            status.textContent = msg("success", "Thanks — we'll be in touch within one business day.");
             form.reset();
           })
           .catch(function () {
-            status.textContent = "Something went wrong. Please email us directly at " + CONTACT_EMAIL + ".";
+            status.textContent = msg("error", "Something went wrong. Please email us directly at") + " " + CONTACT_EMAIL + ".";
           });
         return;
       }
@@ -117,7 +114,7 @@
         String(data.get("message") || "")
       ].join("\n");
       window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-      status.textContent = "Opening your email client… If nothing happens, write to " + CONTACT_EMAIL + ".";
+      status.textContent = msg("mailto", "Opening your email client… If nothing happens, write to") + " " + CONTACT_EMAIL + ".";
     });
   }
 })();
